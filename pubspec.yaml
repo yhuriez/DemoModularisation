@@ -21,6 +21,15 @@ version: 1.0.0+1
 environment:
   sdk: ^3.9.2
 
+# Configuration du workspace pour gérer les packages locaux
+workspace:
+  - packages/common
+  - packages/data
+  - packages/domain
+  - packages/feature_auth
+  - packages/feature_todo
+  - packages/ui
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -35,19 +44,15 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   
-  # Packages locaux
+  # Packages locaux (gérés automatiquement par le workspace)
   common:
-    path: packages/common
   domain:
-    path: packages/domain
   data:
-    path: packages/data
   feature_auth:
-    path: packages/feature_auth
   feature_todo:
-    path: packages/feature_todo
   ui:
-    path: packages/ui
+  
+  # Dépendances externes
   get_it: ^8.0.2
   injectable: ^2.5.0
   go_router: ^14.6.2

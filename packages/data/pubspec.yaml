@@ -2,6 +2,7 @@ name: data
 description: "Couche données contenant les repositories et sources de données"
 version: 0.0.1
 homepage:
+resolution: workspace
 
 environment:
   sdk: ^3.9.2
@@ -11,11 +12,13 @@ dependencies:
   flutter:
     sdk: flutter
   
-  # Dépendances aux packages domain et common
+  # Dépendances aux packages domain et common (gérées par workspace)
   domain:
-    path: ../domain
   common:
-    path: ../common
+  
+  # Injection de dépendances
+  get_it: ^8.0.2
+  injectable: ^2.5.0
   
   # Stockage local
   shared_preferences: ^2.3.4

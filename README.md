@@ -44,11 +44,15 @@ Le projet est organisé en plusieurs packages indépendants :
 
 ## 🚀 Installation et exécution
 
+> **Note** : Ce projet utilise **Pub Workspace** pour gérer les packages locaux. Voir [WORKSPACE.md](WORKSPACE.md) pour plus de détails.
+
 ### 1. Récupérer les dépendances
 
 ```bash
 flutter pub get
 ```
+
+Cette commande résout et installe les dépendances pour tous les packages du workspace.
 
 ### 2. Générer le code pour l'injection de dépendances
 
@@ -75,6 +79,18 @@ flutter run
 - **Validation de formulaires** : `formz`
 - **Stockage local** : `shared_preferences`
 - **Égalité** : `equatable`
+- **Gestion des packages** : `Pub Workspace`
+
+## 📦 Pub Workspace
+
+Le projet utilise **Pub Workspace** pour gérer les dépendances entre les packages locaux. Les avantages principaux :
+
+- ✅ **Résolution centralisée** : toutes les dépendances sont résolues une fois au niveau du workspace
+- ✅ **Cohérence des versions** : évite les conflits de versions entre packages
+- ✅ **Simplification** : plus besoin de gérer les chemins relatifs (`path: ../package`)
+- ✅ **Performance** : optimisation du téléchargement et de la résolution des dépendances
+
+Pour plus de détails, consultez [WORKSPACE.md](WORKSPACE.md).
 
 ## 📱 Fonctionnalités
 
@@ -120,12 +136,13 @@ flutter test
 Ce projet démontre :
 1. ✅ Séparation en couches (Domain, Data, Presentation)
 2. ✅ Modularisation par fonctionnalités (features)
-3. ✅ Injection de dépendances
-4. ✅ Pattern Repository
-5. ✅ Use Cases pour la logique métier
-6. ✅ État typé avec BLoC
-7. ✅ Gestion des erreurs avec Result
-8. ✅ Validation avec Formz
+3. ✅ Gestion multi-packages avec Pub Workspace
+4. ✅ Injection de dépendances
+5. ✅ Pattern Repository
+6. ✅ Use Cases pour la logique métier
+7. ✅ État typé avec BLoC
+8. ✅ Gestion des erreurs avec Result
+9. ✅ Validation avec Formz
 
 ## 📝 Notes
 

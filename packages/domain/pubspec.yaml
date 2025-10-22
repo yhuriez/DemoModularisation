@@ -2,14 +2,14 @@ name: domain
 description: "Couche domaine contenant les entités et use cases (Dart pur)"
 version: 0.0.1
 homepage:
+resolution: workspace
 
 environment:
   sdk: ^3.9.2
 
 dependencies:
-  # Dépendance au package common
+  # Dépendance au package common (gérée par workspace)
   common:
-    path: ../common
   
   # Utilitaires
   freezed_annotation: ^2.4.4

@@ -1,6 +1,7 @@
 name: ui
 description: "Composants UI réutilisables"
 version: 0.0.1
+resolution: workspace
 
 environment:
   sdk: ^3.9.2
@@ -10,11 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   
-  # Dépendances aux packages domain et common
+  # Dépendances aux packages domain et common (gérées par workspace)
   domain:
-    path: ../domain
   common:
-    path: ../common
   
   # Navigation
   go_router: ^14.6.2

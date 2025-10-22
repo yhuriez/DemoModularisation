@@ -2,6 +2,7 @@ name: feature_todo
 description: "Feature de gestion des todos"
 version: 0.0.1
 homepage:
+resolution: workspace
 
 environment:
   sdk: ^3.9.2
@@ -11,13 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   
-  # Dépendances aux packages domain et common
+  # Dépendances aux packages domain et common (gérées par workspace)
   domain:
-    path: ../domain
   common:
-    path: ../common
   ui:
-    path: ../ui
 
   # State management
   flutter_bloc: ^8.1.6
@@ -25,7 +23,7 @@ dependencies:
 
   # Sérialisation
   freezed_annotation: ^2.4.4
-  
+
   # Navigation
   go_router: ^14.6.2
 

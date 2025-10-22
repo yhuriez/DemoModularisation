@@ -2,6 +2,7 @@ name: feature_auth
 description: "Feature d'authentification"
 version: 0.0.1
 homepage:
+resolution: workspace
 
 environment:
   sdk: ^3.9.2
@@ -11,18 +12,15 @@ dependencies:
   flutter:
     sdk: flutter
   
-  # Dépendances aux packages domain et common
+  # Dépendances aux packages domain et common (gérées par workspace)
   domain:
-    path: ../domain
   common:
-    path: ../common
   ui:
-    path: ../ui
 
   # State management
   flutter_bloc: ^8.1.6
   bloc: ^8.1.4
-  
+
   # Forms
   formz: ^0.7.0
   
