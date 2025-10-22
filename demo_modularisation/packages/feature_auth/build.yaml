@@ -1,0 +1,9 @@
+# Configuration de build_runner pour le package feature_auth
+targets:
+  $default:
+    builders:
+      injectable_generator:injectable_builder:
+        enabled: true
+        options:
+          auto_register: true
+

@@ -1,0 +1,23 @@
+name: domain
+description: "Couche domaine contenant les entités et use cases (Dart pur)"
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  # Dépendance au package common
+  common:
+    path: ../common
+  
+  # Utilitaires
+  equatable: ^2.0.7
+  
+  # Injection de dépendances
+  injectable: ^2.5.0
+
+dev_dependencies:
+  test: ^1.24.0
+  lints: ^5.0.0
+  build_runner: ^2.4.13

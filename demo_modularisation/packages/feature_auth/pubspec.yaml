@@ -1,0 +1,38 @@
+name: feature_auth
+description: "Feature d'authentification"
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.9.2
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Dépendances aux packages domain et common
+  domain:
+    path: ../domain
+  common:
+    path: ../common
+  ui:
+    path: ../ui
+  
+  # State management
+  flutter_bloc: ^8.1.6
+  
+  # Forms
+  formz: ^0.7.0
+  
+  # Navigation
+  go_router: ^14.6.2
+  get_it: ^8.2.0
+  injectable: ^2.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  injectable_generator: ^2.6.2
+  build_runner: ^2.4.13

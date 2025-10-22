@@ -1,0 +1,28 @@
+name: data
+description: "Couche données contenant les repositories et sources de données"
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.9.2
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Dépendances aux packages domain et common
+  domain:
+    path: ../domain
+  common:
+    path: ../common
+  
+  # Stockage local
+  shared_preferences: ^2.3.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  injectable_generator: ^2.6.2
+  build_runner: ^2.4.13
