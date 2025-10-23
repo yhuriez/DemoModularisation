@@ -44,29 +44,41 @@ Le projet est organisé en plusieurs packages indépendants :
 
 ## 🚀 Installation et exécution
 
-### 1. Récupérer les dépendances
+### 1. Installer Melos (si ce n'est pas déjà fait)
+
+Ce projet utilise **Melos 6.3.3** pour gérer le monorepo et mutualiser les opérations sur tous les packages.
 
 ```bash
-flutter pub get
+dart pub global activate melos 6.3.3
 ```
 
-### 2. Générer le code pour l'injection de dépendances
+### 2. Récupérer les dépendances
+
+```bash
+melos bootstrap
+```
+
+Cette commande va récupérer les dépendances pour tous les packages et créer les liens nécessaires.
+
+### 3. Générer le code pour l'injection de dépendances
 
 Le projet utilise `injectable` et `get_it` pour l'injection de dépendances. Il faut générer le code avec :
 
 ```bash
-# Générer le code pour tous les packages
-flutter pub run build_runner build --delete-conflicting-outputs
+# Générer le code pour tous les packages en une seule commande
+melos build
 
 # Ou en mode watch pour la génération automatique lors des modifications
-flutter pub run build_runner watch --delete-conflicting-outputs
+melos watch
 ```
 
-### 3. Lancer l'application
+### 4. Lancer l'application
 
 ```bash
 flutter run
 ```
+
+> 💡 **Note** : Voir [MELOS.md](MELOS.md) pour plus de détails sur l'utilisation de Melos.
 
 ## 🔧 Technologies utilisées
 
@@ -75,6 +87,7 @@ flutter run
 - **Validation de formulaires** : `formz`
 - **Stockage local** : `shared_preferences`
 - **Égalité** : `equatable`
+- **Gestion de monorepo** : `melos` 6.3.3
 
 ## 📱 Fonctionnalités
 
@@ -93,27 +106,48 @@ flutter run
 - Gestion de session
 - Tests unitaires et d'intégration
 
-## 📚 Commandes utiles
+## 📚 Commandes utiles avec Melos
 
-### Nettoyer les fichiers générés
+### Générer le code (build_runner)
 ```bash
-flutter pub run build_runner clean
+# Génération unique
+melos build
+
+# Mode watch
+melos watch
+
+# Nettoyer les fichiers générés
+melos build:clean
 ```
 
-### Analyser le code
+### Gestion des packages
 ```bash
-flutter analyze
+# Récupérer les dépendances
+melos bootstrap
+
+# Nettoyer tous les packages
+melos clean
 ```
 
-### Formater le code
+### Qualité du code
 ```bash
-dart format .
+# Analyser le code
+melos analyze
+
+# Formater le code
+melos format
+
+# Vérifier le formatage
+melos format:check
+
+# Exécuter les tests
+melos test
+
+# Lancer tous les checks avant un commit
+melos check
 ```
 
-### Exécuter les tests
-```bash
-flutter test
-```
+> 📖 Consultez [MELOS.md](MELOS.md) pour la documentation complète des commandes Melos disponibles.
 
 ## 🎓 Apprentissages clés
 
