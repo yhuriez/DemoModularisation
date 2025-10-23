@@ -1,0 +1,73 @@
+name: demo_modularisation
+repository: https://github.com/your-repo/demo_modularisation
+
+packages:
+  - .
+  - packages/**
+
+command:
+  version:
+    # Générer des commits lors du versioning
+    updateGitTagRefs: true
+    workspaceChangelog: false
+
+  bootstrap:
+    # Résoudre automatiquement les conflits de dépendances
+    runPubGetInParallel: true
+    runPubGetOffline: false
+
+scripts:
+  # Nettoyer tous les packages
+  clean:
+    description: Nettoie tous les packages (supprime build/, .dart_tool/, etc.)
+    run: |
+      melos exec -- "flutter clean" --fail-fast
+      
+  # Récupérer les dépendances pour tous les packages
+  get:
+    description: Récupère les dépendances pour tous les packages
+    run: melos bootstrap
+
+  # Analyser tous les packages
+  analyze:
+    description: Analyse statique de tous les packages
+    run: melos exec -- "dart analyze" --fail-fast
+
+  # Lancer les tests sur tous les packages
+  test:
+    description: Lance les tests sur tous les packages
+    run: melos exec -- "flutter test" --fail-fast --dir-exists=test
+
+  # Build runner pour tous les packages qui en ont besoin
+  build:
+    description: Lance build_runner sur tous les packages qui l'utilisent
+    run: melos exec --depends-on="build_runner" -- "dart run build_runner build --delete-conflicting-outputs"
+    
+  # Build runner en mode watch pour développement
+  watch:
+    description: Lance build_runner en mode watch sur tous les packages
+    run: melos exec --depends-on="build_runner" -- "dart run build_runner watch --delete-conflicting-outputs"
+
+  # Nettoyer les fichiers générés par build_runner
+  build:clean:
+    description: Nettoie les fichiers générés par build_runner
+    run: melos exec --depends-on="build_runner" -- "dart run build_runner clean"
+
+  # Formater le code
+  format:
+    description: Formate le code de tous les packages
+    run: melos exec -- "dart format ."
+
+  # Vérifier le formatage
+  format:check:
+    description: Vérifie le formatage du code
+    run: melos exec -- "dart format --set-exit-if-changed ."
+    
+  # Lancer tous les checks avant un commit
+  check:
+    description: Lance tous les checks (format, analyze, test)
+    run: |
+      melos format:check &&
+      melos analyze &&
+      melos test
+
