@@ -19,6 +19,10 @@ dependencies:
   
   # Stockage local
   shared_preferences: ^2.3.4
+  
+  # Sérialisation
+  freezed_annotation: ^2.4.4
+  json_annotation: ^4.9.0
 
 dev_dependencies:
   flutter_test:
@@ -26,3 +30,5 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   injectable_generator: ^2.6.2
   build_runner: ^2.4.13
+  freezed: ^2.5.7
+  json_serializable: ^6.8.0

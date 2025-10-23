@@ -1,11 +1,7 @@
-# Configuration de build_runner pour le package feature_auth
+# Configuration de build_runner pour le package feature_todo
 targets:
   $default:
     builders:
-      injectable_generator:injectable_builder:
-        enabled: true
-        options:
-          auto_register: true
       freezed:
         generate_for:
           - lib/src/blocs/**/*.dart

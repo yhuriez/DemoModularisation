@@ -1,26 +1,15 @@
 part of 'login_bloc.dart';
 
 /// Événements du Bloc de connexion
-sealed class LoginEvent {
-  const LoginEvent();
-}
-
-/// Changement de l'email
-class LoginEmailChanged extends LoginEvent {
-  final String email;
+@freezed
+class LoginEvent with _$LoginEvent {
+  /// Changement de l'email
+  const factory LoginEvent.emailChanged(String email) = LoginEmailChanged;
   
-  const LoginEmailChanged(this.email);
-}
-
-/// Changement du mot de passe
-class LoginPasswordChanged extends LoginEvent {
-  final String password;
+  /// Changement du mot de passe
+  const factory LoginEvent.passwordChanged(String password) = LoginPasswordChanged;
   
-  const LoginPasswordChanged(this.password);
-}
-
-/// Soumission du formulaire
-class LoginSubmitted extends LoginEvent {
-  const LoginSubmitted();
+  /// Soumission du formulaire
+  const factory LoginEvent.submitted() = LoginSubmitted;
 }
 

@@ -1,0 +1,11 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          - lib/src/entities/*.dart
+        options:
+          # Génère des méthodes copyWith, == et hashCode
+          union_key: type
+          union_value_case: pascal
+

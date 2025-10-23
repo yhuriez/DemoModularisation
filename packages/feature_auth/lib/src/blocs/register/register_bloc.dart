@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:common/common.dart';
 import 'package:domain/domain.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:formz/formz.dart';
 import 'package:injectable/injectable.dart';
 import '../../models/email_input.dart';
@@ -10,6 +10,7 @@ import '../../models/name_input.dart';
 
 part 'register_event.dart';
 part 'register_state.dart';
+part 'register_bloc.freezed.dart';
 
 /// Bloc de gestion de l'inscription
 @injectable

@@ -6,4 +6,10 @@ targets:
         enabled: true
         options:
           auto_register: true
+      freezed:
+        generate_for:
+          - lib/src/models/*.dart
+        options:
+          union_key: type
+          union_value_case: pascal
 

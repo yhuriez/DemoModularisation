@@ -1,33 +1,18 @@
 part of 'register_bloc.dart';
 
 /// Événements du Bloc d'inscription
-sealed class RegisterEvent {
-  const RegisterEvent();
-}
-
-/// Changement de l'email
-class RegisterEmailChanged extends RegisterEvent {
-  final String email;
+@freezed
+class RegisterEvent with _$RegisterEvent {
+  /// Changement de l'email
+  const factory RegisterEvent.emailChanged(String email) = RegisterEmailChanged;
   
-  const RegisterEmailChanged(this.email);
-}
-
-/// Changement du mot de passe
-class RegisterPasswordChanged extends RegisterEvent {
-  final String password;
+  /// Changement du mot de passe
+  const factory RegisterEvent.passwordChanged(String password) = RegisterPasswordChanged;
   
-  const RegisterPasswordChanged(this.password);
-}
-
-/// Changement du nom
-class RegisterNameChanged extends RegisterEvent {
-  final String name;
+  /// Changement du nom
+  const factory RegisterEvent.nameChanged(String name) = RegisterNameChanged;
   
-  const RegisterNameChanged(this.name);
-}
-
-/// Soumission du formulaire
-class RegisterSubmitted extends RegisterEvent {
-  const RegisterSubmitted();
+  /// Soumission du formulaire
+  const factory RegisterEvent.submitted() = RegisterSubmitted;
 }
 

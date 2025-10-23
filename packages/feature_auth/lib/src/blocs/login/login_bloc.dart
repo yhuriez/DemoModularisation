@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:common/common.dart';
 import 'package:domain/domain.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:formz/formz.dart';
 import 'package:injectable/injectable.dart';
 import '../../models/email_input.dart';
@@ -9,6 +9,7 @@ import '../../models/password_input.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
+part 'login_bloc.freezed.dart';
 
 /// Bloc de gestion de la connexion
 @injectable

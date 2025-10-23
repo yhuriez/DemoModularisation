@@ -18,9 +18,13 @@ dependencies:
     path: ../common
   ui:
     path: ../ui
-  
+
   # State management
   flutter_bloc: ^8.1.6
+  bloc: ^8.1.4
+
+  # Sérialisation
+  freezed_annotation: ^2.4.4
   
   # Navigation
   go_router: ^14.6.2
@@ -30,3 +34,4 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
   build_runner: ^2.4.13
+  freezed: ^2.5.7

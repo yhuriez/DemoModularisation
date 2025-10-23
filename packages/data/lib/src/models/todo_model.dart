@@ -1,52 +1,26 @@
 import 'package:domain/domain.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'todo_model.freezed.dart';
+part 'todo_model.g.dart';
 
 /// Modèle de données pour les todos
-class TodoModel {
-  final String id;
-  final String userId;
-  final String title;
-  final String? description;
-  final bool isCompleted;
-  final DateTime createdAt;
-  final DateTime? completedAt;
+@freezed
+class TodoModel with _$TodoModel {
+  const TodoModel._();
   
-  const TodoModel({
-    required this.id,
-    required this.userId,
-    required this.title,
-    this.description,
-    required this.isCompleted,
-    required this.createdAt,
-    this.completedAt,
-  });
+  const factory TodoModel({
+    required String id,
+    required String userId,
+    required String title,
+    String? description,
+    required bool isCompleted,
+    required DateTime createdAt,
+    DateTime? completedAt,
+  }) = _TodoModel;
   
   /// Conversion depuis JSON
-  factory TodoModel.fromJson(Map<String, dynamic> json) {
-    return TodoModel(
-      id: json['id'] as String,
-      userId: json['userId'] as String,
-      title: json['title'] as String,
-      description: json['description'] as String?,
-      isCompleted: json['isCompleted'] as bool,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      completedAt: json['completedAt'] != null
-          ? DateTime.parse(json['completedAt'] as String)
-          : null,
-    );
-  }
-  
-  /// Conversion vers JSON
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'userId': userId,
-      'title': title,
-      'description': description,
-      'isCompleted': isCompleted,
-      'createdAt': createdAt.toIso8601String(),
-      'completedAt': completedAt?.toIso8601String(),
-    };
-  }
+  factory TodoModel.fromJson(Map<String, dynamic> json) => _$TodoModelFromJson(json);
   
   /// Conversion vers l'entité domain
   Todo toEntity() {

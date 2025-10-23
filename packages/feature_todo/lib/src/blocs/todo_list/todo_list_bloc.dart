@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:domain/domain.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'todo_list_event.dart';
 part 'todo_list_state.dart';
+part 'todo_list_bloc.freezed.dart';
 
 /// Bloc de gestion de la liste des todos
 class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
